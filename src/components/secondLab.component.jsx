@@ -15,10 +15,9 @@ const SecondLab = ({ match }) => {
   const [NO, setNO] = useState(undefined)
   const [SO, setSO] = useState(undefined)
   const [uTab, setUTab] = useState(0)
-  const [sBioGetsinoz, setSBioGetSinoz] = useState(0)
-  const [PP, setPP] = useState(0)
+  const [sBioGetsinoz, setSBioGetSinoz] = useState(undefined)
   const [PB, setPB] = useState({})
-  const [consistencePop, setConsistencePop] = useState(0)
+  const [consistencePop, setConsistencePop] = useState(undefined)
   const [P, setP] = useState({});
   const [uForest, setUForest] = useState(0);
   const [result, setResult] = useState('');
@@ -303,6 +302,7 @@ const SecondLab = ({ match }) => {
         <h2>Masalaning Javobi</h2>
         <h1>{result1}</h1>
         <h1>{result}</h1>
+        <p style={{ display: 'none' }}>{sBioGetsinoz + consistencePop + PB}</p>
       </ResultContainer>
     </Container>
   )

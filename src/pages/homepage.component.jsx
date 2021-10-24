@@ -25,7 +25,7 @@ const HomePage = (props) => {
               <button type='submit'>View Solution</button>
             </Link>
             <a href='https://t.me/ekos4224'>
-              <img src="https://img.icons8.com/fluency/48/000000/telegram-app.png" />
+              <img src="https://img.icons8.com/fluency/48/000000/telegram-app.png" alt='' />
             </a>
             <h2 style={{ color: 'white' }}>{inputValue}</h2>
           </form>
