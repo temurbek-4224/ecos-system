@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import styled from 'styled-components';
 
-const Content = ({ imageUrl, name, id, match }) => {
+const Content = ({ imageUrl, name, id, match, pdf }) => {
   return (
     <ContentContainer className="card text-white  mb-3">
       <img src={imageUrl} className="card-img-top" alt="..." />
@@ -12,7 +12,14 @@ const Content = ({ imageUrl, name, id, match }) => {
           textAlign: 'center'
         }}>{name}</h5>
         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <Link className="btn btn-dark btn-sm" to={`/${match.params.username}/${id}`}>{id} - Labaratoriya</Link>
+        <div style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
+          <Link className="btn btn-dark btn-sm" to={`/${match.params.username}/${id}`}>{id} - Labaratoriya</Link>
+          <a href={pdf} target='_blank' rel="noreferrer" className='btn btn-dark btn-sm'>PDF</a>
+        </div>
       </div>
     </ContentContainer>
   );

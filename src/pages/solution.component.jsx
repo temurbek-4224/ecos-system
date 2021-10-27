@@ -16,6 +16,7 @@ const Solution = ({ match }) => {
               imageUrl={item.imageUrl}
               id={item.id}
               name={item.name}
+              pdf={item.pdf}
             />
           ))
         }
