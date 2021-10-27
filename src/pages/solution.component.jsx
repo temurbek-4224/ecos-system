@@ -1,12 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import SecondLab from "../components/secondLab.component";
+import Content from "../components/littleComponents/content.component";
+import DATA from "../data/data";
 
 const Solution = ({ match }) => {
+  const data = DATA;
   return (
     <Container>
       <Title>Ekalogiya Labaratoriyalar {match.params.username}</Title>
-      <SecondLab match={match} />
+      <EkosContainer>
+        {
+          data.map((item, index) => (
+            <Content
+              key={index}
+              imageUrl={item.imageUrl}
+              id={item.id}
+              name={item.name}
+            />
+          ))
+        }
+      </EkosContainer>
+      {/* <SecondLab match={match} /> */}
     </Container>
   )
 }
@@ -31,6 +45,12 @@ const Title = styled.h1`
     font-size: 20px;
     text-align: center;
   }
+`
+
+const EkosContainer = styled.div`
+ display: flex;
+ justify-content: space-around;
+ flex-wrap: wrap;
 `
 
 export default Solution;

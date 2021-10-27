@@ -110,6 +110,7 @@ const SecondLab = ({ match }) => {
 
   return (
     <Container>
+      <h1>Ikkinchi Labaratoriya</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <section>
@@ -314,6 +315,12 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  background: radial-gradient(
+    134.34% 134.34% at 50% 0%,
+    #1f3757 0%,
+    #131537 100%
+  );
+  color: #fff;
   form{
     display: flex;
     flex-direction: column;
