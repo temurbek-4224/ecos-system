@@ -7,7 +7,7 @@ const Solution = ({ match }) => {
   const data = DATA;
   return (
     <Container>
-      <Title>Ekalogiya Labaratoriyalar {match.params.username}</Title>
+      <Title>Ekalogiya Amaliyotlar {match.params.username}</Title>
       <EkosContainer>
         {
           data.map((item, index) => (

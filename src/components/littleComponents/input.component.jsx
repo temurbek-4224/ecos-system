@@ -1,18 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
-const CustomInput = ({ handleChange, children, ...otherInputProps }) => {
+const CustomInput = ({ handleChange, ...otherInputProps }) => {
   return (
     <InputContainer>
-      <InputGroup className="input-group input-group-sm mb-3">
+      <InputGroup className="input-group input-group-sm mb-1">
         <label>{otherInputProps.label}</label>
         <input
           style={{
-            width: '240px'
+            width: '240px',
+            outline: 'none',
+            border: 'none',
+            padding: '8px 10px',
+            borderRadius: '20px',
+            boxShadow: '0 0 10px #000000',
+            color: '#000',
+            fontSize: '16px'
           }}
+          maxLength={20}
           className="form-control"
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
-          onChange={handleChange}
+          onChange={(e) => handleChange(e)}
           {...otherInputProps}
         />
       </InputGroup>
@@ -21,7 +29,7 @@ const CustomInput = ({ handleChange, children, ...otherInputProps }) => {
 }
 
 const InputContainer = styled.div`
-  width: 500px;
+  /* width: 500px; */
 `;
 
 const InputGroup = styled.div`

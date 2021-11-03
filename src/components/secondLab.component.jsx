@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import CustomButton from "./littleComponents/customButton.component";
+import Title from "./littleComponents/title.component";
 
 const SecondLab = ({ match }) => {
   const [lastStuDoc, setLastStuDoc] = useState(undefined)
@@ -110,7 +112,7 @@ const SecondLab = ({ match }) => {
 
   return (
     <Container>
-      <h1>Ikkinchi Labaratoriya</h1>
+      <Title>Ikkinchi Amaliyot</Title>
       <form onSubmit={handleSubmit}>
         <div>
           <section>
@@ -176,7 +178,7 @@ const SecondLab = ({ match }) => {
             />
           </section>
         </div>
-        <button className='btn btn-danger' type='submit'>Yechim</button>
+        <CustomButton type='submit'>Yechim</CustomButton>
       </form>
       <ResultContainer>
         <h1>Labaratoryia Yechimi</h1>
@@ -345,7 +347,8 @@ const Container = styled.div`
         flex-direction: column;
         justify-content: space-between;
         @media screen and (max-width: 720px) {
-          width: 80%;
+          width: 100%;
+          font-size: 14px;
         }
         h2{
           color: #cf3535;
