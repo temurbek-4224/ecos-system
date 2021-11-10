@@ -163,7 +163,7 @@ const SixthLab = () => {
           <table className='table table-danger table-bordered'>
             <thead>
               <tr>
-                <th scope='col' colSpan='2'>Talabalik Raqamining</th>
+                <th scope='col' colSpan='2'>Talabalik Guvohnomasining</th>
               </tr>
               <tr>
                 <th scope='col'>Ohiridan oldingi raqami.</th>
