@@ -18,6 +18,7 @@ const CustomInput = ({ handleChange, ...otherInputProps }) => {
             fontSize: '16px'
           }}
           maxLength={20}
+          required
           className="form-control"
           aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"
           onChange={(e) => handleChange(e)}

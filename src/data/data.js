@@ -45,7 +45,7 @@ const DATA = [
     id: 8,
     name: 'Ekologik Muammolar',
     imageUrl: 'https://cdn.pixabay.com/photo/2020/05/21/19/09/away-5202207_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/8.pdf`
   },
   {
     id: 9,
