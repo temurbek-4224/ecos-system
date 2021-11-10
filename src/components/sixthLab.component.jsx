@@ -27,6 +27,9 @@ const SixthLab = () => {
     const { name, value } = e.target;
     const values = { ...inputValues };
     values[name] = value;
+    // console.log(value)
+    // console.log()
+    // console.log(e.target.value)
     setInputValues(values);
   }
 
@@ -151,6 +154,86 @@ const SixthLab = () => {
         </div>
         <CustomButton type='submit'>Yechim</CustomButton>
       </form>
+
+      <TableContainer>
+        <LargeTable>
+
+        </LargeTable>
+        <SmallTable>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col' colSpan='2'>Talabalik Raqamining</th>
+              </tr>
+              <tr>
+                <th scope='col'>Ohiridan oldingi raqami.</th>
+                <th scope='col'>Ohirigi raqami</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.lastNumDoc}</td>
+                <td>{inputValues.lastNum}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col' colSpan='4'>Tashlamalar Miqdori ()</th>
+              </tr>
+              <tr>
+                <th scope='col'>M<sub>CO</sub></th>
+                <th scope='col'>M<sub>NO2</sub></th>
+                <th scope='col'>M<sub>SO2</sub></th>
+                <th scope='col'>M<sub>chang</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.mCO}</td>
+                <td>{inputValues.mNO2}</td>
+                <td>{inputValues.mSO2}</td>
+                <td>{inputValues.mChang}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>N</th>
+                <th scope='col'>H, m</th>
+                <th scope='col'>D, m</th>
+                <th scope='col'>A</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.N}</td>
+                <td>{inputValues.H}</td>
+                <td>{inputValues.D}</td>
+                <td>{inputValues.A}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>W, m/s</th>
+                <th scope='col'>T<sub>r</sub>, <sup>0</sup>C</th>
+                <th scope='col'>T<sub>a</sub>, <sup>0</sup>C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.W}</td>
+                <td>{inputValues.Tr}</td>
+                <td>{inputValues.Ta}</td>
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
+      </TableContainer>
     </Container>
   )
 }
@@ -188,6 +271,35 @@ const Container = styled.div`
       }
     }
   }
+
 `
+
+const TableContainer = styled.div`
+
+`
+
+const LargeTable = styled.div`
+  
+`
+
+const SmallTable = styled.div`
+  display: none;
+  text-align: center;
+  width: 100%;
+  padding: 10px 20px;
+
+  table{
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 720px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`
+
 
 export default SixthLab;
