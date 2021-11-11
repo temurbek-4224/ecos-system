@@ -17,6 +17,7 @@ const Solution = ({ match }) => {
               id={item.id}
               name={item.name}
               pdf={item.pdf}
+              description={item.description}
             />
           ))
         }

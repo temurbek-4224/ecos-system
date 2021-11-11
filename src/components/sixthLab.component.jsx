@@ -425,7 +425,11 @@ const Container = styled.div`
 `
 
 const TableContainer = styled.div`
-  padding: 10px 20px;
+  padding: 10px 150px;
+  text-align: center;
+  @media screen and (max-width: 720px){
+    padding: 10px 5px;
+  }
 `
 
 const LargeTable = styled.div`
