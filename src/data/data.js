@@ -43,38 +43,38 @@ const DATA = [
   },
   {
     id: 7,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: 'Mavzu: sanoat korxonalarining sanitariya himoya mintaqasini aniqlash',
+    description: "Ishdan maqsad: Sanoat korxonalari qurishda shamol yo'nalishini hisobga olishni o’rganish.",
     imageUrl: 'https://cdn.pixabay.com/photo/2014/04/17/23/26/environmental-protection-326923_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/7.pdf`
   },
   {
     id: 8,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: 'Mavzu: sanoat korxonalarining sanitariya himoya mintaqasini aniqlash',
+    description: "Ishdan maqsad: Sanoat korxonalari qurishda shamol yo'nalishini hisobga olishni o’rganish.",
     imageUrl: 'https://cdn.pixabay.com/photo/2020/05/21/19/09/away-5202207_960_720.jpg',
     pdf: `${process.env.PUBLIC_URL}/ekosFiles/8.pdf`
   },
   {
     id: 9,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: 'Mavzu: Suv havzalariga sanoat korxonalarini tashlanadigan tashlamalarni hisoblash.',
+    description: "Ishdan maqsad: Suv havzalari sanoat korxonalaridan chiqaradigan tashlamalarni xarakteristikalarini hisoblash",
     imageUrl: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/9.pdf`
   },
   {
     id: 10,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: "Mavzu: Tuproqdagi ifloslantiruvchi moddalarni me'yorlash",
+    description: "Ishdan maqsad. Kimyoviy moddalar bilan ifloslangan tuproqning xavfliligini baholash va darajalashtirishni o’rganish.",
     imageUrl: 'https://cdn.pixabay.com/photo/2019/07/19/23/16/power-plant-4349830_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/10.pdf`
   },
   {
     id: 11,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: "Mavzu: Atrof muhitni muhofazasi mehanizmi havo muhitini ifloslantiruvchilarga nisbatan to’lovlarni hisoblash.",
+    description: "Ishdan maqsad. Atmosferani ifloslantirganlik uchun to‘lovni hisoblash",
     imageUrl: 'https://cdn.pixabay.com/photo/2013/11/24/10/18/earth-216834_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/11.pdf`
   },
   {
     id: 12,
