@@ -78,31 +78,31 @@ const DATA = [
   },
   {
     id: 12,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: "Mavzu: Sanoat chiqindilarni ushlab qolish qolish samaradorligini baholash",
+    description: "Havoning yer usti qatlamida aholi, shuningdek hayvonot va o‘simlik dunyosi uchun chegaraviy ruxsat etiladigan konsentratsiyalarni o'rganish",
     imageUrl: 'https://cdn.pixabay.com/photo/2018/02/03/13/04/refinery-3127588_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/12.pdf`
   },
   {
     id: 13,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: "Mavzu: Atrof-muhitga ta’sir etishni baholash. Qurilish maydonlarini demografik salohiyatini aniqlash",
+    description: "Ishdan maqsad: Qurilishlar hududida ekologik muvozanatni saqlash uchun uning demografik sig‘iminii aniqlash",
     imageUrl: 'https://cdn.pixabay.com/photo/2013/09/11/12/01/biological-181237_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/13.pdf`
   },
   {
     id: 14,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: 'Mavzu: Avtomobillardan chiqadigan Zararli gazlar miqdorini aniqlash.',
+    description: "Ishdan maqsad: Avtomobillardan chiqadigan zararli moddalarning miqdorini aniqlash",
     imageUrl: 'https://cdn.pixabay.com/photo/2016/10/22/21/54/industry-1761801_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/14.pdf`
   },
   {
     id: 15,
-    name: 'Ekologik Muammolar',
-    description: 'aksdgak akshdkjagd akhsdjadh kajsdkajh kajsdhkajdh kajhdakjshd',
+    name: "Elektr olish manbalarining turlari haqidagi bilimlaringiz.",
+    description: "Ishdan maqsad: Elektr olish manbalarining turlarini o’rganish va ularning ijobiy, salbiy holatlarini taxlil qilish.",
     imageUrl: 'https://cdn.pixabay.com/photo/2015/11/05/08/33/earth-1023859_960_720.jpg',
-    pdf: `${process.env.PUBLIC_URL}/ekosFiles/1.pdf`
+    pdf: `${process.env.PUBLIC_URL}/ekosFiles/15.pdf`
   },
 ]
 

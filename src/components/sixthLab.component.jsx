@@ -403,6 +403,7 @@ const Container = styled.div`
     padding: 20px 40px;
     width: 100%;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     div{
       width: 80%;
