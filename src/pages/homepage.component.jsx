@@ -53,7 +53,7 @@ const FormContainer = styled.div`
   margin: 0 auto;
   padding: 30px 25px;
   @media screen and (max-width: 720px) {
-    width: 240px;
+    width: 300px;
     height: 300px;
     margin: 0 auto;
   }
