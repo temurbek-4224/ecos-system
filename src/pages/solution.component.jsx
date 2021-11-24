@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Content from "../components/littleComponents/content.component";
 import DATA from "../data/data";
+import Title from "../components/littleComponents/title.component";
 
 const Solution = ({ match }) => {
   const data = DATA;
@@ -40,13 +41,6 @@ const Container = styled.div`
   align-items: center;
   /* justify-content: center; */
   color: #fff;
-`
-
-const Title = styled.h1`
-  @media screen and (max-width: 720px) {
-    font-size: 20px;
-    text-align: center;
-  }
 `
 
 const EkosContainer = styled.div`
