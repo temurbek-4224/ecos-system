@@ -99,7 +99,7 @@ const DATA = [
   },
   {
     id: 15,
-    name: "Elektr olish manbalarining turlari haqidagi bilimlaringiz.",
+    name: "Mavzu: Elektr olish manbalarining turlari haqidagi bilimlaringiz.",
     description: "Ishdan maqsad: Elektr olish manbalarining turlarini o’rganish va ularning ijobiy, salbiy holatlarini taxlil qilish.",
     imageUrl: 'https://cdn.pixabay.com/photo/2015/11/05/08/33/earth-1023859_960_720.jpg',
     pdf: `${process.env.PUBLIC_URL}/ekosFiles/15.pdf`
