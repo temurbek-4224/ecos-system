@@ -129,6 +129,65 @@ const FirstLab = (props) => {
         </div>
         <CustomButton type='submit'>Yechim</CustomButton>
       </form>
+
+      {/* Table Container */}
+
+      <TableContainer>
+        <LargeTable></LargeTable>
+        <SmallTable>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>m, kg</th>
+                <th>T<sub>1</sub> <sup>0</sup>C</th>
+                {/* <th>P mm.pm.cm</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.number}</td>
+                <td>{inputValues.massa}</td>
+                <td>{inputValues.tempreture}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th>P mm.pm.cm</th>
+                <th>K</th>
+                <th>f<sub>1</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.pBosim}</td>
+                <td>{inputValues.k}</td>
+                <td>{inputValues.f1}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th>f<sub>2</sub></th>
+                <th>l, m</th>
+                <th>n, m</th>
+                <th>h, m</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.f2}</td>
+                <td>{inputValues.l}</td>
+                <td>{inputValues.n}</td>
+                <td>{inputValues.h}</td>
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
+      </TableContainer>
     </Container>
   )
 }
@@ -166,6 +225,39 @@ const Container = styled.div`
         align-items: center;
       }
     }
+  }
+`
+
+const TableContainer = styled.div`
+  padding: 10px 150px;
+  text-align: center;
+  @media screen and (max-width: 720px){
+    padding: 10px 5px;
+  }
+`
+
+const LargeTable = styled.div`
+   @media screen and (max-width: 720px){
+    display: none;
+  }
+`
+
+const SmallTable = styled.div`
+  display: none;
+  text-align: center;
+  width: 100%;
+  padding: 10px 20px;
+
+  table{
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 720px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `
 
