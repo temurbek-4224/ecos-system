@@ -31,7 +31,7 @@ const Content = ({ imageUrl, name, id, match, pdf, description }) => {
 }
 
 const ContentContainer = styled.div`
-  width: 17rem;
+  width: 18rem;
   border-radius: 15px;
   margin: 15px 10px;
   background: linear-gradient(
@@ -39,7 +39,7 @@ const ContentContainer = styled.div`
   #0072ff
   );
   @media screen and (max-width: 720px) {
-    width: 16rem;
+    width: 18rem;
     border-radius: 10px;
   }
 

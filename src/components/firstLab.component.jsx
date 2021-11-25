@@ -130,6 +130,8 @@ const FirstLab = (props) => {
         <CustomButton type='submit'>Yechim</CustomButton>
       </form>
 
+      <Title>Amaliyot Yechimi</Title>
+
       {/* Table Container */}
 
       <TableContainer>

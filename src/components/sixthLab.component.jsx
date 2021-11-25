@@ -234,6 +234,7 @@ const SixthLab = () => {
         <CustomButton type='submit'>Yechim</CustomButton>
       </form>
 
+      <Title>Amaliyot Yechimi</Title>
       <TableContainer>
         <LargeTable>
           <table className='table table-dark table-bordered'>
