@@ -8,7 +8,7 @@ import summer from '../assets/summer.jpg';
 
 const newDate = new Date();
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const currentmonth = newDate.getMonth();
+// const currentmonth = newDate.getMonth();
 
 const getImage = m => {
   if (m >= 2 && m <= 4) {
@@ -63,7 +63,7 @@ const HomePage = (props) => {
 const BgImage = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: url(${getImage(currentmonth)});
+  background-image: url(${getImage(0)});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
