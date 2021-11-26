@@ -1,7 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import image from '../assets/autmn.jpg';
+import autmn from '../assets/autmn.jpg';
+import winter from '../assets/winter.jpg';
+import spring from '../assets/spring.jpg';
+import summer from '../assets/summer.jpg';
+
+const newDate = new Date();
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const currentmonth = newDate.getMonth();
+
+const getImage = m => {
+  if (m >= 2 && m <= 4) {
+    return spring;
+  } else if (m >= 5 && m <= 7) {
+    return summer;
+  } else if (m >= 8 && m <= 10) {
+    return autmn;
+  }
+
+  return winter;
+}
+
 
 const HomePage = (props) => {
   const [inputValue, setInputValue] = useState('');
@@ -16,7 +36,9 @@ const HomePage = (props) => {
 
 
   return (
-    <div>
+    <div style={{
+      position: 'relative'
+    }}>
       <BgImage>
         <FormContainer>
           <form onSubmit={handleSubmit}>
@@ -30,6 +52,9 @@ const HomePage = (props) => {
             <h2 style={{ color: 'white' }}>{inputValue}</h2>
           </form>
         </FormContainer>
+        <DateContainer>
+          <h1>{months[newDate.getMonth()]}🤓</h1>
+        </DateContainer>
       </BgImage>
     </div>
   )
@@ -38,7 +63,7 @@ const HomePage = (props) => {
 const BgImage = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: url(${image});
+  background-image: url(${getImage(currentmonth)});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -101,6 +126,34 @@ const FormContainer = styled.div`
         font-size: 12px;
         padding: 6px 10px;
       }
+    }
+  }
+`
+
+const DateContainer = styled.div`
+  width: 300px;
+  padding: 15px 25px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.6);
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: #fff;
+  &:hover{
+     box-shadow: 0px 0px 25px 10px #f9fc5dd2;
+     transition: all 0.2s ease-in-out; 
+  }
+  @media screen and (max-width: 720px){
+    padding: 8px 12px;
+    border-radius: 10px;
+    width: 150px;
+    h1{
+      font-size: 20px;
+      text-align: center;
+    }
+    &:hover{
+     box-shadow: 0px 0px 15px 8px #f9fc5dd2;
+     transition: all 0.2s ease-in-out;
     }
   }
 `
