@@ -147,6 +147,7 @@ const DateContainer = styled.div`
     padding: 8px 12px;
     border-radius: 10px;
     width: 150px;
+    bottom: 75px;
     h1{
       font-size: 20px;
       text-align: center;
