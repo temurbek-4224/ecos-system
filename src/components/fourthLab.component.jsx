@@ -2,23 +2,18 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import CustomButton from "./littleComponents/customButton.component";
 import CustomInput from "./littleComponents/input.component";
-import Title from "./littleComponents/title.component";
+import Title from './littleComponents/title.component';
 
-const values = {
+const newInputValues = {
   number: '',
-  massa: '',
-  tempreture: '',
-  pBosim: '',
-  k: '',
-  f1: '',
-  f2: '',
-  l: '',
-  n: '',
-  h: ''
+  pImpuls: '',
+  tVaqt: '',
+  nChastota: '',
+  rMasofa: '',
+  kKuchayish: ''
 }
-
-const FirstLab = (props) => {
-  const [inputValues, setInputValues] = useState(values);
+const FourthLab = () => {
+  const [inputValues, setInputValues] = useState(newInputValues);
 
   const parseF = () => {
     const inputDatas = {};
@@ -29,25 +24,27 @@ const FirstLab = (props) => {
     setInputValues(inputDatas);
   }
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     const values = { ...inputValues };
     values[name] = value;
+
     setInputValues(values);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     parseF();
 
-    setInputValues(values);
-
+    setInputValues(newInputValues);
     console.log('Submitted');
   }
 
   return (
     <Container>
-      <Title>Birinchi Amaliy ish</Title>
+      <Title>To'rtinchi amaliy ish</Title>
+
+      {/* Form Component */}
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -61,69 +58,41 @@ const FirstLab = (props) => {
             />
             <CustomInput
               type='text'
-              label='Massa'
-              name='massa'
-              value={inputValues.massa}
-              handleChange={handleChange}
-            />
-            <CustomInput
-              type='text'
-              label='Temprature'
-              name='tempreture'
-              value={inputValues.tempreture}
-              handleChange={handleChange}
-            />
-            <CustomInput
-              type='text'
-              label='Bosim mm.hg'
-              name='pBosim'
-              value={inputValues.pBosim}
+              label='Nurlanish kuchi'
+              name='pImpuls'
+              value={inputValues.pImpuls}
               handleChange={handleChange}
             />
           </section>
           <section>
             <CustomInput
               type='text'
-              label='K'
-              name='k'
-              value={inputValues.k}
+              label='Impuls davomiyligi'
+              name='tVaqt'
+              value={inputValues.tVaqt}
               handleChange={handleChange}
             />
             <CustomInput
               type='text'
-              label='f1'
-              name='f1'
-              value={inputValues.f1}
-              handleChange={handleChange}
-            />
-            <CustomInput
-              type='text'
-              label='f2'
-              name='f2'
-              value={inputValues.f2}
+              label='Impuls chastotasi'
+              name='nChastota'
+              value={inputValues.nChastota}
               handleChange={handleChange}
             />
           </section>
           <section>
             <CustomInput
               type='text'
-              label='l, m'
-              name='l'
-              value={inputValues.l}
+              label='Manba bilan masofa'
+              name='rMasofa'
+              value={inputValues.rMasofa}
               handleChange={handleChange}
             />
             <CustomInput
               type='text'
-              label='n, m'
-              name='n'
-              value={inputValues.n}
-              handleChange={handleChange}
-            />
-            <CustomInput
-              type='text'
-              label='h, m'
-              name='h'
-              value={inputValues.h}
+              label='Kuchayish Koefitsenti'
+              name='kKuchayish'
+              value={inputValues.kKuchayish}
               handleChange={handleChange}
             />
           </section>
@@ -131,25 +100,63 @@ const FirstLab = (props) => {
         <CustomButton type='submit'>Yechim</CustomButton>
       </form>
 
-      <Title>Amaliyot Yechimi</Title>
-
       {/* Table Container */}
 
       <TableContainer>
+        <SmallTable>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>Number</th>
+                <th scope='col'>Nurlanishning Impulsiv Kuchi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.number}</td>
+                <td>{inputValues.pImpuls}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>Chiqish vaqti</th>
+                <th scope='col'>Takrorlanish chastotasi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.tVaqt}</td>
+                <td>{inputValues.nChastota}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-danger table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>Manba orasidagi masofa</th>
+                <th scope='col'>Kuchayish Koefitsent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.rMasofa}</td>
+                <td>{inputValues.kKuchayish}</td>
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
         <LargeTable>
           <table className='table table-dark table-bordered'>
             <thead>
               <tr>
-                <th>No</th>
-                <th>m, kg</th>
-                <th>T<sub>1</sub> <sup>0</sup>C</th>
-                <th>P mm.pm.cm</th>
-                <th>K</th>
-                <th>f<sub>1</sub></th>
-                <th>f<sub>2</sub></th>
-                <th>l, m</th>
-                <th>n, m</th>
-                <th>h, m</th>
+                <th scope='col'>Number</th>
+                <th scope='col'>Nurlanishning Impulsiv Kuchi</th>
+                <th scope='col'>Chiqish vaqti</th>
+                <th scope='col'>Takrorlanish chastotasi</th>
+                <th scope='col'>Manba orasidagi masofa</th>
+                <th scope='col'>Kuchayish Koefitsent</th>
               </tr>
             </thead>
             <tbody>
@@ -165,66 +172,11 @@ const FirstLab = (props) => {
             </tbody>
           </table>
         </LargeTable>
-        <SmallTable>
-          <table className='table table-danger table-bordered'>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>m, kg</th>
-                <th>T<sub>1</sub> <sup>0</sup>C</th>
-                {/* <th>P mm.pm.cm</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{inputValues.number}</td>
-                <td>{inputValues.massa}</td>
-                <td>{inputValues.tempreture}</td>
-              </tr>
-            </tbody>
-          </table>
-          <table className='table table-danger table-bordered'>
-            <thead>
-              <tr>
-                <th>P mm.pm.cm</th>
-                <th>K</th>
-                <th>f<sub>1</sub></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{inputValues.pBosim}</td>
-                <td>{inputValues.k}</td>
-                <td>{inputValues.f1}</td>
-              </tr>
-            </tbody>
-          </table>
-          <table className='table table-danger table-bordered'>
-            <thead>
-              <tr>
-                <th>f<sub>2</sub></th>
-                <th>l, m</th>
-                <th>n, m</th>
-                <th>h, m</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{inputValues.f2}</td>
-                <td>{inputValues.l}</td>
-                <td>{inputValues.n}</td>
-                <td>{inputValues.h}</td>
-              </tr>
-            </tbody>
-          </table>
-        </SmallTable>
       </TableContainer>
 
       {/* Result Container */}
-
       <ResultContainer>
         <h1>Javob</h1>
-
       </ResultContainer>
     </Container>
   )
@@ -261,6 +213,7 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
       }
     }
   }
@@ -315,4 +268,4 @@ const ResultContainer = styled.div`
   }
 `
 
-export default FirstLab;
+export default FourthLab;
