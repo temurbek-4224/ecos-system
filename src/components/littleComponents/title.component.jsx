@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from 'react-reveal/Fade';
 
 const Title = ({ children }) => {
   return (
-    <TitleContainer>
-      {children}
-    </TitleContainer>
+    <Fade left big>
+      <TitleContainer>
+        {children}
+      </TitleContainer>
+    </Fade>
+
   )
 }
 

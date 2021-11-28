@@ -8,6 +8,7 @@ import SixthLab from './components/sixthLab.component';
 import ThirdLab from './components/thirdLab.component';
 import FourthLab from './components/fourthLab.component';
 import FifthLab from './components/fifthLab.component';
+import SeventhLab from './components/seventhLab.component';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/:username/4' component={FourthLab} />
         <Route exact path='/:username/5' component={FifthLab} />
         <Route exact path='/:username/6' component={SixthLab} />
+        <Route exact path='/:username/7' component={SeventhLab} />
         <Route path='/' component={HomePage} />
       </Switch>
     </div>
