@@ -31,31 +31,6 @@ const Container = styled.div`
       font-size: 18px;
     }
   }
-
-  form{
-    display: flex;
-    padding: 20px 40px;
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    div{
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
-      @media screen and (max-width: 720px) {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      section{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  }
 `
 
 export default ThirdLab;

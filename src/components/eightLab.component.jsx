@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Title from "./littleComponents/title.component";
-const FifthLab = () => {
+const EightLab = () => {
   return (
     <div>
       <Container>
-        <Title>Uchinchi amaliy ish</Title>
-        <h1>😇Bu amaliy mashg'ulat nazariy topshiriqlardan iborat.😇</h1>
+        <Title>Sakkizinchi Amaliy ishi</Title>
+        <h1>😇Bu amaliy mashg'ulot 7-bilan bir xil. Yettinchi amaliy mashg'ulotga o'ting!😇</h1>
         <h2 style={{
           marginTop: '20px',
           fontSize: '48px',
@@ -32,4 +32,4 @@ const Container = styled.div`
     }
   }
 `
-export default FifthLab;
+export default EightLab;

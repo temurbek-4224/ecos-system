@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Title from './littleComponents/title.component';
 import CustomInput from './littleComponents/input.component';
+import CustomButton from './littleComponents/customButton.component';
 const newInputValues = {
   nameBekat: '',
   sh: '',
@@ -24,10 +25,15 @@ const SeventhLab = () => {
     setInputValues(values);
   }
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('Submitted')
+  }
+
   return (
     <Container>
       <Title>Yettinchi amaliy ish</Title>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <section>
             <CustomInput
@@ -99,6 +105,7 @@ const SeventhLab = () => {
             />
           </section>
         </div>
+        <CustomButton type='submit'>Yechim</CustomButton>
       </form>
 
       <Title>Amaliyot Yechimi</Title>
