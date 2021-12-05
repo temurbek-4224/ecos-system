@@ -11,6 +11,12 @@ import FifthLab from './components/fifthLab.component';
 import SeventhLab from './components/seventhLab.component';
 import EightLab from './components/eightLab.component';
 import NinethLab from './components/ninethLab.component';
+import TenLab from './components/tenLab.component';
+import EleventhLab from './components/eleventhLab.component';
+import TwelvethLab from './components/twelwethLab.component';
+import ThirteenthLab from './components/thirteenthLab.component';
+import FourteenthLab from './components/fourteenthLab.component';
+import FifteenthLab from './components/fifteenth.component';
 
 function App() {
   return (
@@ -26,6 +32,12 @@ function App() {
         <Route exact path='/:username/7' component={SeventhLab} />
         <Route exact path='/:username/8' component={EightLab} />
         <Route exact path='/:username/9' component={NinethLab} />
+        <Route exact path='/:username/10' component={TenLab} />
+        <Route exact path='/:username/11' component={EleventhLab} />
+        <Route exact path='/:username/12' component={TwelvethLab} />
+        <Route exact path='/:username/13' component={ThirteenthLab} />
+        <Route exact path='/:username/14' component={FourteenthLab} />
+        <Route exact path='/:username/15' component={FifteenthLab} />
         <Route path='/' component={HomePage} />
       </Switch>
     </div>
