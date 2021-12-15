@@ -30,7 +30,7 @@ const NinethLab = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Submitted')
+    setInputValues(newInputValues);
   }
 
   return (

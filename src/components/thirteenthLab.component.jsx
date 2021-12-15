@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Title from "./littleComponents/title.component";
+// const newInputValues = {
+
+// }
 
 const ThirteenthLab = () => {
   return (

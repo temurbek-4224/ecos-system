@@ -23,7 +23,7 @@ const Content = ({ imageUrl, name, id, match, pdf, description }) => {
           justifyContent: 'space-between',
         }}>
           <Link className="btn btn-dark btn-sm" to={`/${match.params.username}/${id}`}>Yechim</Link>
-          <a href={pdf} target='_blank' rel="noreferrer" className='btn btn-dark btn-sm'>Dawnload</a>
+          <a href={pdf} target='_blank' rel="noreferrer" className='btn btn-dark btn-sm'>Download</a>
         </div>
       </div>
     </ContentContainer>
