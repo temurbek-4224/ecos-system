@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import CustomInput from "./littleComponents/input.component";
 import Title from "./littleComponents/title.component";
+import CustomButton from './littleComponents/customButton.component';
 const newInputValues = {
   number: '',
   tr: '',
@@ -104,6 +105,8 @@ const ThirteenthLab = () => {
             />
           </section>
         </div>
+
+        <CustomButton type='button'>Yechim</CustomButton>
       </form>
 
       <TableContainer>
