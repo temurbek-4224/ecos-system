@@ -10,13 +10,36 @@ const newInputValues = {
   Shq: '',
   jShq: '',
   j: '',
+  L0: '',
   jG: '',
   g: '',
   shG: ''
 };
 
+const resultValues = {
+  sh: undefined,
+  shSh: undefined,
+  Shq: undefined,
+  jShq: undefined,
+  j: undefined,
+  jG: undefined,
+  g: undefined,
+  shG: undefined
+}
+
 const SeventhLab = () => {
   const [inputValues, setInputValues] = useState(newInputValues);
+  const [resultSXM, setResultSXM] = useState(resultValues);
+
+  const parseF = () => {
+    const inputDatas = {};
+    const sorted = Object.keys(inputValues).filter(value => value !== 'nameBekat')
+    for (let key of sorted) {
+      inputDatas[key] = parseFloat(inputValues[key])
+    }
+
+    setInputValues(inputDatas);
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +50,20 @@ const SeventhLab = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Submitted')
+    parseF();
+    const result = {}
+    const getResult = (p, l) => {
+      let L = (p / 12.5) * l;
+      return L;
+    }
+
+    for (let key in resultValues) {
+      let p = inputValues[key];
+      result[key] = getResult(p, inputValues.L0);
+    }
+
+    setResultSXM(result);
+    // setInputValues(newInputValues);
   }
 
   return (
@@ -80,6 +116,13 @@ const SeventhLab = () => {
               name='j'
               handleChange={handleChange}
             />
+            <CustomInput
+              type='text'
+              label={<span>L<sub>0</sub></span>}
+              value={inputValues.L0}
+              name='L0'
+              handleChange={handleChange}
+            />
           </section>
           <section>
             <CustomInput
@@ -124,6 +167,7 @@ const SeventhLab = () => {
                 <th scope='col'>Shq</th>
                 <th scope='col'>JShq</th>
                 <th scope='col'>J</th>
+                <th scope='col'>L<sub>0</sub></th>
                 <th scope='col'>JG'</th>
                 <th scope='col'>G'</th>
                 <th scope='col'>ShG'</th>
@@ -165,6 +209,7 @@ const SeventhLab = () => {
                 <th scope='col'>Shq</th>
                 <th scope='col'>JShq</th>
                 <th scope='col'>J</th>
+                <th scope='col'>L<sub>0</sub></th>
               </tr>
             </thead>
             <tbody>
@@ -172,6 +217,7 @@ const SeventhLab = () => {
                 <td>{inputValues.Shq}</td>
                 <td>{inputValues.jShq}</td>
                 <td>{inputValues.j}</td>
+                <td>{inputValues.L0}</td>
               </tr>
             </tbody>
           </table>
@@ -196,6 +242,68 @@ const SeventhLab = () => {
 
       <ResultContainer>
         <h1>Javob</h1>
+        <LargeTable>
+          <table className='table table-dark table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>Jo'g'rofik ta'riflar</th>
+                {
+                  Object.keys(resultSXM).map(key => (
+                    <th scope='col' key={key}>{key}</th>
+                  ))
+                }
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SXM ning uzunligi</td>
+                {
+                  Object.keys(resultSXM).map(key => (
+                    <td key={key}>{resultSXM[key]}</td>
+                  ))
+                }
+              </tr>
+            </tbody>
+          </table>
+        </LargeTable>
+        <SmallTable>
+          <table className='table table-bordered table-success'>
+            <thead>
+              <tr>
+                <th>Jo'g'rofik Ta'riflar</th>
+                <th>Sh</th>
+                <th>ShShq</th>
+                <th>Shq</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SXM uzunligi</td>
+                <td>{resultSXM.sh}</td>
+                <td>{resultSXM.shSh}</td>
+                <td>{resultSXM.Shq}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className='table table-success table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>JShq</th>
+                <th scope='col'>J</th>
+                <th scope='col'>JG'</th>
+                <th scope='col'>G'</th>
+                <th scope='col'>ShG'</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {
+                  Object.keys(resultSXM).filter((value, index) => index > 2).map(value => <td key={value}>{resultSXM[value]}</td>)
+                }
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
       </ResultContainer>
     </Container>
   )
