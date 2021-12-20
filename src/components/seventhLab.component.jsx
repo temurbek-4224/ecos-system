@@ -371,7 +371,9 @@ const TableContainer = styled.div`
 `
 
 const LargeTable = styled.div`
-   @media screen and (max-width: 720px){
+  max-width: 1054px;
+  margin: 0px auto;
+  @media screen and (max-width: 720px){
     display: none;
   }
 `
@@ -397,6 +399,8 @@ const SmallTable = styled.div`
 
 const ResultContainer = styled.div`
   padding: 10px 20px;
+  /* width: 80%; */
+  margin: 0px auto;
   text-align: center;
   font-size: 14px;
   h1{
