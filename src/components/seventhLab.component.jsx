@@ -148,7 +148,10 @@ const SeventhLab = () => {
             />
           </section>
         </div>
-        <CustomButton type='submit'>Yechim</CustomButton>
+        <main>
+          <CustomButton type='submit'>Yechim</CustomButton>
+          <Button className='btn btn-warning ' onClick={() => { setInputValues(newInputValues) }}>Reset</Button>
+        </main>
       </form>
 
       <Title>Amaliyot Yechimi</Title>
@@ -326,6 +329,11 @@ const Container = styled.div`
     text-align: center;
     align-items: center;
     flex-direction: column;
+    main{
+      width: 220px;
+      display: flex;
+      justify-content: space-between;
+    }
     div{
       width: 80%;
       display: flex;
@@ -342,6 +350,15 @@ const Container = styled.div`
         align-items: center;
       }
     }
+  }
+`
+const Button = styled.button`
+  width: 100px;
+  margin-top: 15px;
+  color: white;
+  &:hover{
+    box-shadow: 0 0 15px #fdd832;
+    color: white;
   }
 `
 
