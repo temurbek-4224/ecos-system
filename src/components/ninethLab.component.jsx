@@ -20,6 +20,7 @@ const newInputValues = {
 
 const NinethLab = () => {
   const [inputValues, setInputValues] = useState(newInputValues);
+  const [REO, setREO] = useState(undefined);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,9 +29,38 @@ const NinethLab = () => {
     setInputValues(values);
   }
 
+  const parseF = () => {
+    const inputDatas = {};
+    const sorted = Object.keys(inputValues).filter(value => value !== 'zararliComponent')
+    for (let key of sorted) {
+      inputDatas[key] = parseFloat(inputValues[key])
+    }
+
+    setInputValues(inputDatas);
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
-    setInputValues(newInputValues);
+    parseF();
+    const { v, H, q2, L, q1, rek, Cf } = inputValues;
+
+    const D = v * H / 200;
+    console.log(D)
+    const alfa = 1.1 * 1.3 * Math.sqrt(D / q2);
+    console.log(alfa);
+    const betta = 2.17 * (-1 * alfa * Math.pow(L, 1 / 3));
+    console.log(betta);
+    const gamma = (1 - betta) / Math.pow((q1 / q2), betta);
+    console.log(gamma);
+    const K = (gamma * q1 + q2) / q2;
+    console.log('K', K);
+    const cReoch = K * (rek - Cf) + rek;
+    console.log(cReoch);
+    const REO = cReoch * q2;
+    console.log(REO)
+    setREO(REO);
+
+    // setInputValues(newInputValues);
   }
 
   return (
@@ -250,6 +280,10 @@ const NinethLab = () => {
       </TableContainer>
       <ResultContainer>
         <h1>Javob</h1>
+        <h4>Ruxsat berilgan chegaraviy oqova quyidagiga teng</h4>
+        <h3 style={{
+          color: 'aqua'
+        }}>{REO}</h3>
       </ResultContainer>
     </Container>
   )
