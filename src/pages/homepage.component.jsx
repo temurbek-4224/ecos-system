@@ -46,8 +46,9 @@ const HomePage = (props) => {
             <Link to={`/${inputValue}`}>
               <button type='submit'>View Solution</button>
             </Link>
-            <a href='https://t.me/ekos4224'>
-              <img src="https://img.icons8.com/fluency/48/000000/telegram-app.png" alt='' />
+            <a href='https://github.com/temurbek-4224/ecos-system' target='_blank' rel="noreferrer">
+              <img src="https://img.icons8.com/color/48/000000/github-2.png" alt='zore' />
+              Source Code
             </a>
             <h2 style={{ color: 'white' }}>{inputValue}</h2>
           </form>
@@ -55,6 +56,7 @@ const HomePage = (props) => {
         <DateContainer>
           <h1>{months[newDate.getMonth()]}🤓</h1>
         </DateContainer>
+
       </BgImage>
     </div>
   )
@@ -103,6 +105,17 @@ const FormContainer = styled.div`
       @media screen and (max-width: 720px) {
         font-size: 12px;
         padding: 6px 10px;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &:hover{
+        color: rgba(228, 67, 35,1);
       }
     }
     button{
