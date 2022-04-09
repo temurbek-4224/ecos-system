@@ -156,6 +156,11 @@ const DateContainer = styled.div`
      box-shadow: 0px 0px 25px 10px #f9fc5dd2;
      transition: all 0.2s ease-in-out; 
   }
+  h1{
+    text-align:center;
+    padding:0;
+    margin:0;
+  }
   @media screen and (max-width: 720px){
     padding: 8px 12px;
     border-radius: 10px;

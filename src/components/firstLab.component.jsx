@@ -29,6 +29,29 @@ const FirstLab = (props) => {
     setInputValues(inputDatas);
   }
 
+  const solving = () => {
+    const { massa, tempreture, pBosim, k, f1, f2, l, n, h } = inputValues;
+    const m1 = massa * k;
+    const m2 = m1 * f1;
+    const m3 = m1 * f2;
+    const mC = m2 + m3;
+    const mCO = mC * 28 / 12;
+    const vCO = (mCO / 28) * 22.4 * 0.001;
+    const vIst = (720 * vCO * (273 + tempreture)) / (pBosim * 273);
+    const s = l * n;
+    const hX = vIst / s;
+
+    const hEy = h - hX;
+
+    if (hEy > 0) {
+      console.log('bosaverish kerak');
+    } else {
+      console.log('bomaydi bu');
+    }
+
+    console.log(hEy);
+  }
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const values = { ...inputValues };
@@ -41,7 +64,7 @@ const FirstLab = (props) => {
     parseF();
 
     setInputValues(values);
-
+    solving();
     console.log('Submitted');
   }
 
