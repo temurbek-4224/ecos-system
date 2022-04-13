@@ -14,6 +14,7 @@ const newInputValues = {
 }
 const FourthLab = () => {
   const [inputValues, setInputValues] = useState(newInputValues);
+  const [i, setI] = useState('');
 
   const parseF = () => {
     const inputDatas = {};
@@ -22,6 +23,18 @@ const FourthLab = () => {
     }
 
     setInputValues(inputDatas);
+  }
+
+  const solving = () => {
+    const { pImpuls, nChastota, rMasofa, kKuchayish } = inputValues;
+
+    const pAvarage = pImpuls * nChastota;
+    const i = pAvarage * kKuchayish / (4 * rMasofa ** 2);
+    setI(i);
+
+    console.log('zore');
+    console.log(i);
+
   }
 
   const handleChange = e => {
@@ -38,6 +51,7 @@ const FourthLab = () => {
 
     setInputValues(newInputValues);
     console.log('Submitted');
+    solving();
   }
 
   return (
@@ -176,7 +190,8 @@ const FourthLab = () => {
 
       {/* Result Container */}
       <ResultContainer>
-        <h1>Javob</h1>
+        <h1>Oqim zichligi quyidagiga teng I: <span>{i}</span></h1>
+        <h1>Qadrli talaba masala uchun xulosani o'zingiz qilishingiz kerak!</h1>
       </ResultContainer>
     </Container>
   )
@@ -259,6 +274,9 @@ const ResultContainer = styled.div`
   h1{
     @media screen and (max-width: 720px){
       font-size: 20px;
+    }
+    span{
+      color: #3cffc4;
     }
   }
 

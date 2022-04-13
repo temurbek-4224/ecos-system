@@ -1,18 +1,130 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import CustomButton from "./littleComponents/customButton.component";
+import CustomInput from "./littleComponents/input.component";
 import Title from "./littleComponents/title.component";
 
+const newInputValues = {
+  nameModda: '',
+  chrek: '',
+  translokatsion: '',
+  suvda: '',
+  havoda: '',
+  allSanitar: '',
+}
+
 const TenLab = () => {
+  const [inputValues, setInputValues] = useState(newInputValues);
+
+  const parseF = () => {
+    const inputDatas = {};
+    const values = Object.keys(inputValues).filter(name => name !== 'nameModda');
+    for (let key of values) {
+      inputDatas[key] = parseFloat(inputValues[key]);
+    }
+  }
+
+  const solving = () => {
+    const { chrek } = inputValues;
+
+    console.log(chrek * 2);
+    console.log('yechim yechaman!');
+  }
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    const values = { ...inputValues };
+    values[name] = value;
+
+    setInputValues(values);
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    parseF();
+
+    console.log('submitted')
+    solving();
+  }
+
   return (
     <Container>
       <Title>O'ninchi Amaliy mashg'ulotlar</Title>
 
-      <form>
-
+      <form onSubmit={handleSubmit}>
+        <div>
+          <section>
+            <CustomInput
+              type='text'
+              label='Modda'
+              name='nameModda'
+              value={inputValues.nameModda}
+              handleChange={handleChange}
+            />
+            <CustomInput
+              type='text'
+              label='ChREK mg/kg'
+              name='chrek'
+              value={inputValues.chrek}
+              handleChange={handleChange}
+            />
+          </section>
+          <section>
+            <CustomInput
+              type='text'
+              label='translokatsion'
+              name='translokatsion'
+              value={inputValues.translokatsion}
+              handleChange={handleChange}
+            />
+            <CustomInput
+              type='text'
+              label='Suvda'
+              name='suvda'
+              value={inputValues.suvda}
+              handleChange={handleChange}
+            />
+          </section>
+          <section>
+            <CustomInput
+              type='text'
+              label='havoda'
+              name='havoda'
+              value={inputValues.havoda}
+              handleChange={handleChange}
+            />
+            <CustomInput
+              type='text'
+              label='Umumiy Sanitar'
+              name='allSanitar'
+              value={inputValues.allSanitar}
+              handleChange={handleChange}
+            />
+          </section>
+        </div>
+        <CustomButton type='submit'>Yechim</CustomButton>
       </form>
 
       <TableContainer>
-        <LargeTable></LargeTable>
+        <LargeTable>
+          <table className="table table-dark table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Modda</th>
+                <th scope="col">ChREK (mg/kg)</th>
+                <th scope="col">translokatsion</th>
+                <th scope="col">Suvda</th>
+                <th scope="col">Havoda</th>
+                <th scope="col">Umumiy Sanitar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {Object.keys(inputValues).map(key => <td key={key}>{inputValues[key]}</td>)}
+              </tr>
+            </tbody>
+          </table>
+        </LargeTable>
         <SmallTable></SmallTable>
       </TableContainer>
 
