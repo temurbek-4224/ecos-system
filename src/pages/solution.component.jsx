@@ -8,7 +8,7 @@ const Solution = ({ match }) => {
   const data = DATA;
   return (
     <Container>
-      <Title>Ekalogiya Amaliyotlar {match.params.username}</Title>
+      <Title>"Ekologiya" fani bo'yicha amaliy masalalarni hisoblash uchun dastur {match.params.username}</Title>
       <EkosContainer>
         {
           data.map((item, index) => (
