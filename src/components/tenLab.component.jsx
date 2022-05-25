@@ -5,12 +5,13 @@ import CustomInput from "./littleComponents/input.component";
 import Title from "./littleComponents/title.component";
 
 const newInputValues = {
-  nameModda: '',
-  chrek: '',
-  translokatsion: '',
-  suvda: '',
-  havoda: '',
-  allSanitar: '',
+  nameModda1: '',
+  chrek1: '',
+  nameModda2: '',
+  chrek2: '',
+  nameModda3: '',
+  chrek3: '',
+  s: ''
 }
 
 const TenLab = () => {
@@ -56,48 +57,55 @@ const TenLab = () => {
           <section>
             <CustomInput
               type='text'
-              label='Modda'
-              name='nameModda'
-              value={inputValues.nameModda}
+              label='1-Modda'
+              name='nameModda1'
+              value={inputValues.nameModda1}
               handleChange={handleChange}
             />
             <CustomInput
               type='text'
-              label='ChREK mg/kg'
-              name='chrek'
-              value={inputValues.chrek}
-              handleChange={handleChange}
-            />
-          </section>
-          <section>
-            <CustomInput
-              type='text'
-              label='translokatsion'
-              name='translokatsion'
-              value={inputValues.translokatsion}
-              handleChange={handleChange}
-            />
-            <CustomInput
-              type='text'
-              label='Suvda'
-              name='suvda'
-              value={inputValues.suvda}
+              label='1-ChREK'
+              name='chrek1'
+              value={inputValues.chrek1}
               handleChange={handleChange}
             />
           </section>
           <section>
             <CustomInput
               type='text'
-              label='havoda'
-              name='havoda'
-              value={inputValues.havoda}
+              label='2-modda'
+              name='nameModda2'
+              value={inputValues.nameModda2}
               handleChange={handleChange}
             />
             <CustomInput
               type='text'
-              label='Umumiy Sanitar'
-              name='allSanitar'
-              value={inputValues.allSanitar}
+              label='2-ChREK'
+              name='chrek2'
+              value={inputValues.chrek2}
+              handleChange={handleChange}
+            />
+            <CustomInput
+              type='text'
+              label='S (mg/kg)'
+              name='s'
+              value={inputValues.s}
+              handleChange={handleChange}
+            />
+          </section>
+          <section>
+            <CustomInput
+              type='text'
+              label='3-modda'
+              name='nameModda3'
+              value={inputValues.nameModda3}
+              handleChange={handleChange}
+            />
+            <CustomInput
+              type='text'
+              label='3-ChREK'
+              name='chrek3'
+              value={inputValues.chrek3}
               handleChange={handleChange}
             />
           </section>
@@ -110,12 +118,13 @@ const TenLab = () => {
           <table className="table table-dark table-bordered">
             <thead>
               <tr>
-                <th scope="col">Modda</th>
-                <th scope="col">ChREK (mg/kg)</th>
-                <th scope="col">translokatsion</th>
-                <th scope="col">Suvda</th>
-                <th scope="col">Havoda</th>
-                <th scope="col">Umumiy Sanitar</th>
+                <th scope="col">1-modda</th>
+                <th scope="col">1-ChREK</th>
+                <th scope="col">2-modda</th>
+                <th scope="col">2-ChREK</th>
+                <th scope="col">3-modda</th>
+                <th scope="col">3-ChREK</th>
+                <th scope="col">S (mg/kg)</th>
               </tr>
             </thead>
             <tbody>
@@ -125,7 +134,62 @@ const TenLab = () => {
             </tbody>
           </table>
         </LargeTable>
-        <SmallTable></SmallTable>
+        <SmallTable>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">1-modda</th>
+                <th scope="col">1-ChREK</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.nameModda1}</td>
+                <td>{inputValues.chrek1}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">2-modda</th>
+                <th scope="col">2-ChREK</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.nameModda2}</td>
+                <td>{inputValues.chrek2}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">3-modda</th>
+                <th scope="col">3-ChREK</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.nameModda3}</td>
+                <td>{inputValues.chrek3}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">S (mg/kg)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{inputValues.s}</td>
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
       </TableContainer>
 
       <ResultContainer>
