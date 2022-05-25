@@ -16,20 +16,32 @@ const newInputValues = {
 
 const TenLab = () => {
   const [inputValues, setInputValues] = useState(newInputValues);
+  const [result, setResult] = useState({
+    k1: '',
+    k2: '',
+    k3: '',
+    result1: '',
+  });
 
   const parseF = () => {
     const inputDatas = {};
-    const values = Object.keys(inputValues).filter(name => name !== 'nameModda');
+    const values = Object.keys(inputValues).filter((a, i) => a !== `nameModda${i}`);
     for (let key of values) {
       inputDatas[key] = parseFloat(inputValues[key]);
     }
   }
 
   const solving = () => {
-    const { chrek } = inputValues;
+    const { chrek1, chrek2, chrek3, s } = inputValues;
+    const k1 = s / chrek1;
+    const k2 = s / chrek2;
+    const k3 = s / chrek3;
+    const cF1 = 0.3 * chrek1;
+    const cF2 = 0.4 * chrek2;
+    const cF3 = 0.5 * chrek3;
 
-    console.log(chrek * 2);
-    console.log('yechim yechaman!');
+    const result1 = s * (1 / cF1 + 1 / cF2 + 1 / cF3);
+    setResult({ k1, k2, k3, result1 });
   }
 
   const handleChange = e => {
@@ -46,6 +58,7 @@ const TenLab = () => {
 
     console.log('submitted')
     solving();
+    setInputValues(newInputValues)
   }
 
   return (
@@ -194,6 +207,56 @@ const TenLab = () => {
 
       <ResultContainer>
         <h1>Javob</h1>
+        <LargeTable>
+          <table className="table table-dark table-bordered">
+            <thead>
+              <tr>
+                <th scope="col" key={12}>k1</th>
+                <th scope="col" key={13}>k2</th>
+                <th scope="col" key={14}>k3</th>
+                <th scope="col" key={15}>Z</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {
+                  Object.keys(result).map(item => <td key={item}>{result[item]}</td>
+                  )
+                }
+              </tr>
+            </tbody>
+          </table>
+        </LargeTable>
+        <SmallTable>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">k1</th>
+                <th scope="col">k2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.k1}</td>
+                <td>{result.k2}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">k3</th>
+                <th scope="col">Z</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.k3}</td>
+                <td>{result.result1}</td>
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
       </ResultContainer>
 
     </Container>
@@ -270,7 +333,7 @@ const SmallTable = styled.div`
 `
 
 const ResultContainer = styled.div`
-  padding: 10px 20px;
+  padding: 10px 150px;
   text-align: center;
   font-size: 14px;
   h1{
@@ -282,6 +345,7 @@ const ResultContainer = styled.div`
 
   @media screen and (max-width: 720px){
     font-size: 14px;
+    padding:10px 0px;
   }
 `
 
