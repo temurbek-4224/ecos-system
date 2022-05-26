@@ -55,10 +55,8 @@ const TenLab = () => {
   const handleSubmit = e => {
     e.preventDefault();
     parseF();
-
-    console.log('submitted')
     solving();
-    setInputValues(newInputValues)
+    setInputValues(newInputValues);
   }
 
   return (
@@ -211,10 +209,10 @@ const TenLab = () => {
           <table className="table table-dark table-bordered">
             <thead>
               <tr>
-                <th scope="col" key={12}>k1</th>
-                <th scope="col" key={13}>k2</th>
-                <th scope="col" key={14}>k3</th>
-                <th scope="col" key={15}>Z</th>
+                <th scope="col">k1</th>
+                <th scope="col">k2</th>
+                <th scope="col">k3</th>
+                <th scope="col">Z</th>
               </tr>
             </thead>
             <tbody>

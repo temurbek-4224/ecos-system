@@ -19,8 +19,22 @@ const newInputValues = {
   kF: ''
 }
 
+const newResult = {
+  vM: '',
+  chrem1: '',
+  chrem2: '',
+  chrem3: '',
+  chrem4: '',
+  v1: '',
+  cMT1: '',
+  cMT2: '',
+  cMT3: '',
+  cMT4: '',
+}
+
 const TwelvethLab = () => {
   const [inputValues, setInputValues] = useState(newInputValues);
+  const [result, setResult] = useState(newResult);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,8 +43,37 @@ const TwelvethLab = () => {
     setInputValues(values);
   }
 
+  const parseF = () => {
+    const inputDatas = {};
+    const values = Object.keys(inputValues).filter((a, i) => a !== 'tashModda');
+    for (let key of values) {
+      inputDatas[key] = parseFloat(inputValues[key]);
+    }
+  }
+
+  const solving = () => {
+    const { W, quvurlarD, N, fonKonsent, quvurlarH, zonaA, kF, mKoefit, tutunHajmi } = inputValues;
+    const vM = 1.3 * quvurlarD * W / N;
+    const chrem1 = (1.5 - fonKonsent) * quvurlarH ** 2 / (zonaA * kF * mKoefit * N);
+    const chrem2 = (0.06 - fonKonsent) * quvurlarH ** 2 / (zonaA * kF * mKoefit * N);
+    const chrem3 = (0.5 - fonKonsent) * quvurlarH ** 2 / (zonaA * kF * mKoefit * N);
+    const chrem4 = (0.05 - fonKonsent) * quvurlarH ** 2 / (zonaA * kF * mKoefit * N);
+
+    ////////////////
+
+    const v1 = 3.14 * quvurlarD ** 2 / 4 * W * N;
+    const cMT1 = chrem1 / tutunHajmi;
+    const cMT2 = chrem2 / tutunHajmi;
+    const cMT3 = chrem3 / tutunHajmi;
+    const cMT4 = chrem4 / tutunHajmi;
+
+    setResult({ vM, chrem1, chrem2, chrem3, chrem4, v1, cMT1, cMT2, cMT3, cMT4 });
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
+    parseF();
+    solving();
     setInputValues(newInputValues);
   }
 
@@ -275,6 +318,121 @@ const TwelvethLab = () => {
 
       <ResultContainer>
         <h1>Javob</h1>
+        <LargeTable>
+          <table className="table table-dark table-bordered">
+            <thead>
+              <tr>
+                <th>V <sub>m</sub></th>
+                <th>1-ChREM</th>
+                <th>2-ChREM</th>
+                <th>3-ChREM</th>
+                <th>4-ChREM</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.vM}</td>
+                <td>{result.chrem1}</td>
+                <td>{result.chrem2}</td>
+                <td>{result.chrem3}</td>
+                <td>{result.chrem4}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-dark table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">V <sub>i</sub></th>
+                <th scope="col">C <sub>MT1</sub></th>
+                <th scope="col">C <sub>MT2</sub></th>
+                <th scope="col">C <sub>MT3</sub></th>
+                <th scope="col">C <sub>MT4</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.v1}</td>
+                <td>{result.cMT1}</td>
+                <td>{result.cMT2}</td>
+                <td>{result.cMT3}</td>
+                <td>{result.cMT4}</td>
+              </tr>
+            </tbody>
+          </table>
+        </LargeTable>
+        <SmallTable>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">V <sub>m</sub></th>
+                <th scope="col">1-Chrem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.vM}</td>
+                <td>{result.chrem1}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">2-Chrem</th>
+                <th scope="col">3-Chrem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.chrem2}</td>
+                <td>{result.chrem3}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">4-Chrem</th>
+                <th scope="col">V <sub>i</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.chrem4}</td>
+                <td>{result.v1}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">C <sub>MT1</sub></th>
+                <th scope="col">C <sub>MT2</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.cMT1}</td>
+                <td>{result.cMT2}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table className="table table-danger table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">C <sub>MT3</sub></th>
+                <th scope="col">C <sub>MT4</sub></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{result.cMT3}</td>
+                <td>{result.cMT4}</td>
+              </tr>
+            </tbody>
+          </table>
+        </SmallTable>
       </ResultContainer>
 
     </Container>
@@ -351,7 +509,7 @@ const SmallTable = styled.div`
 `
 
 const ResultContainer = styled.div`
-  padding: 10px 20px;
+  padding: 10px 150px;
   text-align: center;
   font-size: 14px;
   h1{
@@ -363,6 +521,7 @@ const ResultContainer = styled.div`
 
   @media screen and (max-width: 720px){
     font-size: 14px;
+    padding:10px 0px;
   }
 `
 
