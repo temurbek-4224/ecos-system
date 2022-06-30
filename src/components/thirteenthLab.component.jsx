@@ -17,6 +17,15 @@ const newInputValues = {
 
 const ThirteenthLab = () => {
   const [inputValues, setInputValues] = useState(newInputValues);
+  const [result, setResult] = useState({
+    d1: '',
+    d2: '',
+    d3: '',
+    d4: '',
+    d5: '',
+    d6: ''
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const values = { ...inputValues };
@@ -24,8 +33,39 @@ const ThirteenthLab = () => {
     setInputValues(values);
   }
 
+  const parseF = () => {
+    const inputDatas = {};
+    const values = Object.keys(inputValues);
+    for (let key of values) {
+      inputDatas[key] = parseFloat(inputValues[key]);
+    }
+
+    setInputValues(inputDatas);
+  }
+
+  const solving = () => {
+    const { tr, k1, e, ye, l, v, k3, k4 } = inputValues;
+
+    const d1 = tr * k1 * 1000 / (30 - Math.floor(Math.random() * 10));
+
+    const d2 = ye * 0.25 * 1000 / (2000 - Math.floor(Math.random() * 1000));
+
+    const d3 = e * tr * 1000 / 40;
+
+    const d4 = tr * l * 0.5 * 10 / (0.2 * 0.3);
+
+    const d5 = 2 * v * 0.3 * 1000 / (0.5 * 0.4);
+
+    const d6 = tr * k3 * k4 * 1000 / (2000 - Math.floor(Math.random() * 1500));
+    console.log(d1, d2, d3, d4, d5, d6)
+
+    setResult({ d1: d1, d2: d2, d3: d3, d4: d4, d5: d5, d6: d6 });
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
+    parseF();
+    solving();
     setInputValues(newInputValues);
   }
 
@@ -190,6 +230,24 @@ const ThirteenthLab = () => {
 
       <ResultContainer>
         <h1>Javob</h1>
+        <LargeTable>
+          <table className="table table-bordered table-dark">
+            <thead>
+              <tr>
+                {
+                  Object.keys(result).map(a => <th scope="col" key={a}>{a}</th>)
+                }
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {
+                  Object.values(result).map(a => <td key={a}>{a}</td>)
+                }
+              </tr>
+            </tbody>
+          </table>
+        </LargeTable>
       </ResultContainer>
 
     </Container>
@@ -266,7 +324,7 @@ const SmallTable = styled.div`
 `
 
 const ResultContainer = styled.div`
-  padding: 10px 20px;
+  padding: 10px 150px;
   text-align: center;
   font-size: 14px;
   h1{
